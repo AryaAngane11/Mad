@@ -25,6 +25,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
           title: Text("List View layout",
@@ -51,19 +52,21 @@ class PlayerCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Container(
-            height: 60,
-            width: 500,
-            child: Center(child: Text(name)),
-            color: Colors.blueGrey,
-            margin: EdgeInsets.fromLTRB(450, 20, 20, 20)),
-        Icon(
-          Icons.account_box_rounded,
-          size: 60,
-        ),
-      ],
+    return Card(
+      child: ListTile(
+          leading: Icon(
+            Icons.account_circle,
+            size: 60,
+          ),
+          title: Center(
+            child: Text(
+              name,
+              style: TextStyle(
+                fontSize: 30,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          )),
     );
   }
 }
